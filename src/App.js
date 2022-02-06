@@ -19,21 +19,29 @@ import InputSearch from './view/components/InputSearch';
 function App() {
 
 
-  let searchCharacters =[]
+
   const [answerCard,setAnwerCard]=useState([]);
   const [text,setText]=useState('')
 
   
 
-  searchCharacters=productos.filter((character)=>{
-    const characterText=character.nombre.toLowerCase()
-    const searchText=text.toLowerCase()
-    return characterText.includes(searchText)
-  })
-  console.log(searchCharacters)
   
  
 
+    const valueFilter = productos.filter((character)=>{
+      const characterText=character.nombre.toLowerCase()
+      const searchText=text.toLowerCase()
+      return characterText.includes(searchText)
+    })
+
+
+
+    const searchValue = () => {
+      setAnwerCard(valueFilter)
+    
+    }
+    console.log(answerCard)
+ 
   return (
     <>
       <Header>
@@ -51,11 +59,12 @@ function App() {
         <CountSearch>
           <ButtonDrink setAnwerCard={ setAnwerCard} />
           <ButtonMeal setAnwerCard={setAnwerCard} caracteristica='bebidas'/>
-          <InputSearch text={text} setText={setText}/>
+          <InputSearch text={text} setText={setText} searchValue={searchValue}/>
+          
         </CountSearch>
 
         {
-          (answerCard.length>1)?answerCard.map(cosa=>(
+          (answerCard.length>=1)?answerCard.map(cosa=>(
             <Card
               key={cosa.nombre}
               imagen={cosa.imagen}
