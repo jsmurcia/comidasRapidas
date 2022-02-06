@@ -1,0 +1,13 @@
+.cont__input{
+    width: 100%;
+    background-color: blueviolet;
+    margin: 30px;
+   
+}
+
+.cont__input-input{
+    width: 585px;
+    height:60px;
+    font-size: 20px;
+    padding-left: 20px;
+}

@@ -1,0 +1,10 @@
+.contButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+    padding: 15px;
+    
+  
+
+}
