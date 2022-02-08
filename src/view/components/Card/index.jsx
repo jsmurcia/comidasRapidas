@@ -1,47 +1,67 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import './styles.css'
+import style from './styles.module.css'
 import { useState } from 'react'
 
-const Card = ({nombre,imagen,descripcion,valor}) =>{
+const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping}) =>{
 
     const iconCar =<FontAwesomeIcon icon ={faShoppingCart} className='icon'/>
 
     const [count,setCount]=useState(0)
+    
+    let infoProduct = {
+    
+        "imagen":imagen,
+        "descripcion":descripcion,
+        "valor":valor,
+        "nombre":nombre,
+        'counter':count
+    };
+
     const increment = () =>{
         setCount(count+1)
-    }
+    };
 
     const decrement = () => {
         (count>=1)?
         setCount(count-1)
         : setCount(0)
+    };
+
+    const clickSent=()=>{
+        setContentCarShopping((prep)=>[...prep,infoProduct])
     }
- 
+    
     return (
-        <div className='card__cont'>
-            <div className='card__cont-img'>
+        <div className={style.card__cont}>
+            <div className={style.card__contImg}>
                 <img src={imagen} alt={nombre}/>
             </div> 
 
-            <div className='card__cont-info'>
+            <div className={style.card__contInfo}>
 
                 <h2>{nombre}</h2>
 
-                           
-                
-                <p className='card__text-description'>{descripcion}</p>
-                <p className='card__cont-info-value'>{`Precio: $${valor}`}</p>
-                <div className='card__cont-info-button'>
-                    <button className='card__cont-info-buttonSuma'  onClick={increment}>+</button>
-                    <div className='card__cont-info-buttonR'>{count}</div>
-                    <button className='card__cont-info-buttonResta' onClick={decrement}>-</button>
+                <p className={style.card__textDescription}>{descripcion}</p>
+                <p className={style.card__contInfoValue}>{`Precio: $${valor}`}</p>
+
+                <div className={style.card__contInfoButton}>
+                    <button className={style.card__contInfoButtonSuma}  onClick={increment}>+</button>
+                    <div className={style.card__contInfoButtonR}>{count}</div>
+                    <button className={style.card__contInfoButtonResta} onClick={decrement}>-</button>
                 </div>
 
-                <button className='card__cont-info-buttonAnadir'>Añadir al carrito...{iconCar}</button>
+                <button 
+                    className={style.card__contInfoButtonAnadir}
+                    onClick={()=>clickSent()}
+                >
+                    Añadir al carrito...{iconCar}
+                </button>
 
             </div>
+
         </div>
+
     )
 }
 export default Card 

@@ -8,3 +8,7 @@
     border: none ;
     cursor: pointer;
 }
+.buttonMeal:hover{
+    background-color:#000 ;
+    color: #fff;
+}

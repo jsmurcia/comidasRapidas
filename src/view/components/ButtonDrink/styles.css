@@ -1,10 +1,17 @@
 .buttonBebidas{
     padding:15px 25px;
     height: 60px;
-    margin-left: 60px;
+    
     font-size: 35PX;
     line-height: 35PX;
     border-radius: 5PX;
     border: none ;
     cursor: pointer;
+}
+
+.buttonBebidas:hover{
+
+    background-color:#000 ;
+        color: #fff;
+
 }
