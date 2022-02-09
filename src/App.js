@@ -29,8 +29,10 @@ function App() {
   const [answerCard,setAnwerCard]=useState([]);
   const [text,setText]=useState('');
   const [contentCarShopping,setContentCarShopping]=useState([]);
+  const [totalValue,setTotalValue]=useState([])
 
-  console.log(contentCarShopping)
+  
+  
 
     const valueFilter = productos.filter((character)=>{
       const characterText=character.nombre.toLowerCase()
@@ -42,6 +44,15 @@ function App() {
       setAnwerCard(valueFilter)
     }
 
+    console.log(totalValue)
+
+  
+
+  let resultTotalValue=0
+  totalValue.forEach(numero=>{ resultTotalValue += numero})
+
+  console.log(resultTotalValue)
+
   return (
     <>
       <Header>
@@ -50,7 +61,7 @@ function App() {
           <Mensaje/>
           <ContButtons>
             <ButtonCarrito/>
-            <TotalValue/>
+            <TotalValue resultTotalValue={resultTotalValue}/>
           </ContButtons>         
         </Description>
       </Header>
@@ -66,7 +77,8 @@ function App() {
         {
           (answerCard.length>=1)?answerCard.map(cosa=>(
             <Card
-              key={cosa.nombre}
+              id={cosa.id}
+              key={cosa.id}
               imagen={cosa.imagen}
               nombre={cosa.nombre}
               descripcion={cosa.descripcion}
@@ -77,9 +89,9 @@ function App() {
           ))
           :
           productos.map(cosa=>(
-
             <Card
-              key={cosa.nombre}
+              id={cosa.id}
+              key={cosa.id}
               imagen={cosa.imagen}
               nombre={cosa.nombre}
               descripcion={cosa.descripcion}
@@ -103,11 +115,14 @@ function App() {
         {
           (contentCarShopping.length>=1)?contentCarShopping.map(element=>(
           <CardPurchase
+            id={element.id}
+            key={element.id}
             imagen={element.imagen}
             descripcion={element.descripcion}
             valor={element.valor}
             nombre={element.nombre}
             counter={element.counter}
+            setTotalValue={setTotalValue}
           />
           
           )):
@@ -116,7 +131,8 @@ function App() {
       </ContainPurchase>
 
       <ContainSendWhatsapp>
-        <TotalValue/>
+        <TotalValue resultTotalValue={resultTotalValue}/>
+        
       </ContainSendWhatsapp>
 
     </>

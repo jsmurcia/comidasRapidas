@@ -3,14 +3,14 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.css'
 import { useState } from 'react'
 
-const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping}) =>{
+const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping,id}) =>{
 
     const iconCar =<FontAwesomeIcon icon ={faShoppingCart} className='icon'/>
-
+    
     const [count,setCount]=useState(0)
     
     let infoProduct = {
-    
+        "id":id,
         "imagen":imagen,
         "descripcion":descripcion,
         "valor":valor,
@@ -33,7 +33,7 @@ const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping}) =>{
     }
     
     return (
-        <div className={style.card__cont}>
+        <div className={style.card__cont} key={id}>
             <div className={style.card__contImg}>
                 <img src={imagen} alt={nombre}/>
             </div> 

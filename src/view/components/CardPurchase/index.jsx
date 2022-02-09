@@ -1,11 +1,19 @@
-import { useState } from 'react'
+import {  useEffect, useState } from 'react'
+//import { useLayoutEffect } from 'react/cjs/react.development'
 import style from './styles.module.css'
 
-const CardPurchase = ({imagen,descripcion,valor,nombre,counter}) => {
+const CardPurchase = ({imagen,descripcion,valor,nombre,counter,setTotalValue,id}) => {
 
     const [countCardCar,setCountCardCar]=useState(counter)
-    
+
+   
     const fullValueFunction = valor*countCardCar
+
+    useEffect(()=>{
+        setTotalValue(e=>[...e,fullValueFunction])
+    },[countCardCar])
+
+   
 
     const increment = () =>{
         setCountCardCar(countCardCar+1)
@@ -13,6 +21,7 @@ const CardPurchase = ({imagen,descripcion,valor,nombre,counter}) => {
 
     const decrement = () => {
         setCountCardCar(countCardCar-1)
+        setTotalValue((e)=>(e+fullValueFunction))
     }
 
     const reset = () => {
@@ -20,7 +29,7 @@ const CardPurchase = ({imagen,descripcion,valor,nombre,counter}) => {
     }
     
     return (
-        <div className={style.card__cont} style={(countCardCar===0)?{display:'none'}:null}>
+        <div key={id} className={style.card__cont} style={(countCardCar===0)?{display:'none'}:null}>
             <div className={style.card__contImg}>
                 <img src={imagen} alt={nombre}/>
             </div> 

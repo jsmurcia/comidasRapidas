@@ -1,0 +1,12 @@
+.containSendWhatsapp p {
+    color:#fff;
+    font-size: 27px;
+    width:50%;
+    margin-bottom: 30px;
+}
+
+.containSendWhatsapp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

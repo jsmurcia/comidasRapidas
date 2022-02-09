@@ -1,7 +1,7 @@
 import './styles.css'
-const TotalValue = () => {
+const TotalValue = ({resultTotalValue}) => {
     return(
-        <button className="buttonTotalValue">Valor Total: $</button>
+        <div className="buttonTotalValue">{`Valor Total: $${resultTotalValue}`}</div>
     )
 }
 

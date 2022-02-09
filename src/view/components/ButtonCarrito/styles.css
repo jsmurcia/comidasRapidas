@@ -2,4 +2,7 @@
     padding: 15px 50px;
     font-size: 25px;
     border-radius: 10px;
+    width: 95%;
+    cursor:pointer;
+    border-radius: 8px;
 }
