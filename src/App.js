@@ -20,6 +20,7 @@ import styles from './App.module.css'
 import ContainPurchase from './view/components/ContainPurchase';
 import CardPurchase from './view/components/CardPurchase';
 import ContainSendWhatsapp from './view/components/ContainSendWhatsapp';
+import ButtonToWhatsapp from './view/components/ButtonToWhatsapp/ButtonToWhatsapp';
 
 
 function App() {
@@ -31,8 +32,9 @@ function App() {
   const [contentCarShopping,setContentCarShopping]=useState([]);
   const [totalValue,setTotalValue]=useState([])
 
+
   
-  
+  console.log(contentCarShopping)
 
     const valueFilter = productos.filter((character)=>{
       const characterText=character.nombre.toLowerCase()
@@ -44,14 +46,14 @@ function App() {
       setAnwerCard(valueFilter)
     }
 
-    console.log(totalValue)
+
 
   
 
   let resultTotalValue=0
   totalValue.forEach(numero=>{ resultTotalValue += numero})
 
-  console.log(resultTotalValue)
+
 
   return (
     <>
@@ -84,7 +86,8 @@ function App() {
               descripcion={cosa.descripcion}
               valor={cosa.valor}
               setContentCarShopping={setContentCarShopping}
-              
+              setTotalValue={setTotalValue}
+                              
             />
           ))
           :
@@ -97,9 +100,8 @@ function App() {
               descripcion={cosa.descripcion}
               valor={cosa.valor}
               setContentCarShopping={setContentCarShopping}
-              
+              setTotalValue={setTotalValue}
             />
-
           ))
          }
 
@@ -113,7 +115,8 @@ function App() {
 
       <ContainPurchase>
         {
-          (contentCarShopping.length>=1)?contentCarShopping.map(element=>(
+
+          (contentCarShopping.length>=1)&&contentCarShopping.map(element=>(
           <CardPurchase
             id={element.id}
             key={element.id}
@@ -123,16 +126,23 @@ function App() {
             nombre={element.nombre}
             counter={element.counter}
             setTotalValue={setTotalValue}
+            setContentCarShopping={setContentCarShopping}
+            contentCarShopping={contentCarShopping}
           />
           
-          )):
-          null
+          ))
         }
       </ContainPurchase>
 
       <ContainSendWhatsapp>
+
         <TotalValue resultTotalValue={resultTotalValue}/>
-        
+
+        <ButtonToWhatsapp
+          contentCarShopping={contentCarShopping}
+          resultTotalValue={resultTotalValue}
+        />
+
       </ContainSendWhatsapp>
 
     </>

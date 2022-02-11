@@ -3,7 +3,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.css'
 import { useState } from 'react'
 
-const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping,id}) =>{
+const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping,id,setTotalValue}) =>{
 
     const iconCar =<FontAwesomeIcon icon ={faShoppingCart} className='icon'/>
     
@@ -18,8 +18,15 @@ const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping,id}) =>{
         'counter':count
     };
 
+    const pruebaPrecioGlobalsuma = () => {
+        const newValue=(valor*count)
+        console.log(newValue)
+        setTotalValue(e=>[...e,newValue]);
+    }
+
     const increment = () =>{
         setCount(count+1)
+        
     };
 
     const decrement = () => {
@@ -30,6 +37,7 @@ const Card = ({nombre,imagen,descripcion,valor,setContentCarShopping,id}) =>{
 
     const clickSent=()=>{
         setContentCarShopping((prep)=>[...prep,infoProduct])
+        pruebaPrecioGlobalsuma()
     }
     
     return (
