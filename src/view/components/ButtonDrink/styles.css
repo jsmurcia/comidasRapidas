@@ -15,3 +15,13 @@
         color: #fff;
 
 }
+
+@media screen and (max-width:500px) {
+    .buttonBebidas{
+        margin-bottom: 10px;
+        font-size: 25px;
+        height: 40px;
+        padding: 5px;
+
+    }
+}

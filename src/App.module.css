@@ -3,9 +3,22 @@
     font-size: 70px; 
     background-color: #fff;  
     height: 150px;
+    text-align: center;
 
 }
 .cont{
     height: 200px;
     margin-top: 35px;
+}
+
+@media screen and (max-width:500px) {
+
+    .cont__carTitle{
+
+        font-size: 40px; 
+        padding: 10px;
+
+    }
+
+
 }

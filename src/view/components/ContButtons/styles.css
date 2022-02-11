@@ -8,3 +8,9 @@
   
 
 }
+
+@media screen and (max-width:500px) {
+    .contButtons{
+        width: 90%;
+    }
+}

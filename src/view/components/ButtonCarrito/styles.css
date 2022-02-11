@@ -5,4 +5,12 @@
     width: 95%;
     cursor:pointer;
     border-radius: 8px;
+    border:none;
+}
+
+@media screen and (max-width:500px) {
+    .BotonCarrito{
+        font-size: 20px;
+        padding:15px 10px;
+    }
 }

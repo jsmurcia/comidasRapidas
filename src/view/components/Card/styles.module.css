@@ -90,3 +90,22 @@
 .icon{
     color:#000
 }
+
+@media screen and (max-width:500px) {
+
+    .card__contInfo h2{
+
+        font-size: 25px;
+
+    }
+
+    .card__contInfoValue{
+
+        font-size: 24px;
+
+    }
+
+
+
+
+}

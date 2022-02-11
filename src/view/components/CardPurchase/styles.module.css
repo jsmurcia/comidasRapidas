@@ -93,3 +93,44 @@
     
 }
 
+@media screen and (max-width:500px) {
+
+
+    .card__cont{
+
+        flex-direction: column;
+        border: 2px solid #000;
+        width:340px;
+        margin: 20px;
+        background-color: #f5f5f5;
+        border-radius: 12px;
+        height: 580px;
+        align-items: center;
+
+    }
+    .card__contInfoValue{
+        font-size:25px;
+        width: 200px;
+    }
+    .card__textDescription{
+
+        margin:0px
+
+    }
+    .card__contInfoButtonAnadir{
+        font-size: 20px;
+        width: 210px;
+        margin: 10px;
+    }
+    .card__contInfo h2{
+        font-size: 27px;
+        margin: 0px;
+    }
+    .card__contImg{
+        width: 90%;
+    }
+
+
+
+
+}

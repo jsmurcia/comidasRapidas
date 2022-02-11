@@ -70,6 +70,7 @@ function App() {
 
       <ContCard>
         <CountSearch>
+          
           <ButtonDrink setAnwerCard={ setAnwerCard} />
           <ButtonMeal setAnwerCard={setAnwerCard} caracteristica='bebidas'/>
           <InputSearch text={text} setText={setText} searchValue={searchValue}/>

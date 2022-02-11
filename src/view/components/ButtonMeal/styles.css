@@ -12,3 +12,15 @@
     background-color:#000 ;
     color: #fff;
 }
+
+@media screen and (max-width:500px) {
+    .buttonMeal{
+        margin: 0px;
+        margin-bottom: 10px;
+        font-size: 25px;
+        height: 40px;
+        padding: 5px;
+        margin-left: 10px;
+
+    }
+}
